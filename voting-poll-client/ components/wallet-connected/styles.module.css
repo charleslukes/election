@@ -1,0 +1,40 @@
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 41px;
+  -webkit-box-align: center;
+  background-color: rgb(53, 53, 71);
+  border-radius: 16px;
+  box-shadow: rgb(0 0 0 / 10%) 0px -2px 0px inset;
+  cursor: pointer;
+  padding-left: 40px;
+  padding-right: 8px;
+  position: relative;
+  color: #fff;
+}
+
+.walletIcon {
+  -webkit-box-align: center;
+  align-items: center;
+  background-color: rgb(8, 6, 11);
+  border-color: rgb(31, 199, 212);
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 2px;
+  display: flex;
+  height: 50px;
+  -webkit-box-pack: center;
+  justify-content: center;
+  left: -3px;
+  position: absolute;
+  top: -4px;
+  width: 50px;
+  z-index: 2;
+}
+
+.icon {
+  align-self: center;
+  fill: rgb(31, 199, 212);
+  flex-shrink: 0;
+}
