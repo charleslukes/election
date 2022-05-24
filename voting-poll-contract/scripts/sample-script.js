@@ -14,12 +14,40 @@ async function main() {
   // await hre.run('compile');
 
   // We get the contract to deploy
-  const Greeter = await hre.ethers.getContractFactory("Greeter");
-  const greeter = await Greeter.deploy("Hello, Hardhat!");
+  const VotingPollFactory = await hre.ethers.getContractFactory(
+    "VotingPollFactory"
+  );
+  const votingPollFactory = await VotingPollFactory.deploy();
 
-  await greeter.deployed();
+  await votingPollFactory.deployed();
 
-  console.log("Greeter deployed to:", greeter.address);
+  console.log("VotingPollFactory deployed to:", votingPollFactory.address);
+
+  // create first poll
+  const poll1 = await votingPollFactory.createPoll(
+    "Best Programming Language",
+    "In this poll we get the best programming language",
+    ["Javascript", "Java", "Python"]
+  );
+  poll1.wait()
+
+  // create second poll
+  const poll2 = await votingPollFactory.createPoll(
+    "Most used Programming Language",
+    "In this poll we get the most used programming language",
+    ["Javascript", "Java", "Python", "Rust"]
+  );
+
+  poll2.wait()
+
+  // create third poll
+  const poll3 = await votingPollFactory.createPoll(
+    "Most loved Programming Language",
+    "In this poll we get the most loved programming language",
+    ["Ruby", "Rust", "Solidity", "Javascript", "Java", "Python"]
+  );
+  
+  poll3.wait()
 }
 
 // We recommend this pattern to be able to use async/await everywhere
