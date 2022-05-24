@@ -60,4 +60,21 @@ contract VotingPoll {
             }
         }
     }
+
+    function getAllOptions() public view returns (Options[] memory) {
+        uint256 optionLength = options.length;
+        Options[] memory _newOptions = new Options[](optionLength);
+        for (uint256 i = 0; i < optionLength; ) {
+            Options storage _options = options[i];
+            _newOptions[i] = _options;
+            unchecked {
+                i++;
+            }
+        }
+        return _newOptions;
+    }
+
+    function getVoter(address _voter) public view returns (bool, uint256) {
+        return (voters[_voter].voted, voters[_voter].votedFor);
+    }
 }
