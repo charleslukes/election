@@ -23,9 +23,9 @@ contract VotingPollFactory {
 
     function allPolls()
         public
-        pure
-        returns (VotingPoll[] memory _allVotingPolls)
+        view
+        returns (VotingPoll[] memory)
     {
-        return _allVotingPolls;
+        return votingPoll;
     }
 }
