@@ -8,6 +8,7 @@ import {
   JsonRpcSigner,
   Web3Provider,
 } from "@ethersproject/providers";
+import { VOTING_FACTORY_CONTRACT } from "../constants";
 
 
 export type IPoll = {
@@ -36,12 +37,13 @@ export function useWallet() {
 
   const getPools = async () => {
     const votingPF = createContractInstance(
-      "0xA51c1fc2f0D1a1b8494Ed1FE312d7C3a78Ed91C0",
+      VOTING_FACTORY_CONTRACT,
       VotingPollFactory.abi,
       walletData?.provider!
     );
 
     const allPolls = await votingPF.allPolls();
+    
     let pollsList: IPollList = [];
     for (const pollsAddress of allPolls) {
       const singlePoll = createContractInstance(
