@@ -1,0 +1,16 @@
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 1.3rem;
+}
+
+.list {
+    padding: 20px 0;
+}
+
+.red {
+    color: red; 
+    font-size: 0.9rem;
+}
